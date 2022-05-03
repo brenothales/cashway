@@ -1,0 +1,28 @@
+<table class="table table-striped able-bordered table-hover">
+   <thead class="thead-dark">
+    <tr>
+      <th>Nome</th>
+      <th>Conta</th>
+      <th>E-mail</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <% if current_user != user%>
+          <td><%= user.name %></td>
+          <td><%= user.account %></td>
+          <td><%= user.email %></td>
+          <td><%= link_to 'Detalhes', user %></td>
+          <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Adicionar Cliente', new_user_path, class:"btn btn-secondary" %>

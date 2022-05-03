@@ -1,0 +1,27 @@
+version: '3.2'
+
+services:
+  
+  banking:
+    build:
+      context: ./banking
+      dockerfile: Dockerfile
+    volumes:
+      - './banking:/banking'
+    volumes_from:
+      - box
+    ports:
+      - '3001:3000'
+    env_file:
+      - ./.env
+    environment:
+      - RAILS_ENV=development
+    command: bash start.sh
+
+  box:
+    image: busybox
+    volumes:
+      - /box
+
+volumes:
+  box:

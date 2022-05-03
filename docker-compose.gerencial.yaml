@@ -1,0 +1,42 @@
+# docker-compose.1.yml
+version: '3.2'
+
+services:
+  postgres:
+    image: 'postgres:9.5'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+
+  gerencial:
+    build:
+      context: ./gerencial
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
+    volumes:
+      - './gerencial:/gerencial'
+    volumes_from:
+      - box
+    ports:
+      - '3000:3000'
+    env_file:
+      - ./.env
+    environment:
+      - RAILS_ENV=development
+      # - DB_HOST=db
+      # - DB_USER=postgres
+      # - DB_PASSWORD=password
+      # - DB_NAME=my_app_development
+    # command: /bin/sh -c 'bin/bundle check || bundle install && bin/rails db:create && bin/rails db:migrate && bin/rails s -b 0.0.0.0 -P 3000'
+    command: bash start.sh
+
+  box:
+    image: busybox
+    volumes:
+      - /box
+
+volumes:
+  postgres:
+  box:

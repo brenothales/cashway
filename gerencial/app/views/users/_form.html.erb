@@ -1,0 +1,89 @@
+<%= simple_form_for(user) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                label: 'Nome completo',
+                placeholder: 'João Silva'%>
+    <%= f.input :account,
+                required: true,
+                label: 'Número da conta',
+                placeholder: '092833898'%>
+    <%= f.input :email,
+                required: true,
+                label: 'E-mail',
+                placeholder: 'joao@cashway.com'%>
+    <%= f.input :message,
+                required: true,
+                label: 'Mensagem'%>
+    <%= f.input :password,
+                required: true,
+                label: 'Senha',
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                label: 'Confirmar senha',
+                input_html: { autocomplete: "new-password" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Salvar", class:"btn btn-secondary" %>
+    <%= link_to 'Voltar', users_path, class:"btn btn-link" %>
+  </div>
+<% end %>
+
+
+<%
+=begin%>
+ <%= form_for(user) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class:"form-control", placeholder: "Nome do Cliente" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :account %>
+    <%= f.number_field :account, class:"form-control", placeholder:"Conta" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class:"form-control", placeholder:"E-mail" %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :message %>
+    <%= f.text_field :message, class:"form-control", placeholder:"Mensagem" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= f.label :password %>
+    <%= f.text_field :password, class:"form-control", placeholder:"Mensagem" %>
+  </div>
+  
+  <div class="field form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.text_field :password_confirmation, class:"form-control", placeholder:"Mensagem" %>
+  </div>
+
+  <div class="actions mt-5">
+    <%= f.submit class:'btn btn-secondary' %>
+  </div>
+<% end %> 
+<%
+=end%>
