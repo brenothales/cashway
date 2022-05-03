@@ -4,7 +4,7 @@
 
 **Requisitos**:
 
-Para rodar aplicação é necessário ter git e docker instalado [Docker](https://docs.docker.com/engine/install/) abra  o terminal navegue para diretório cd cashWay e rode o comando abaixo:
+Para rodar aplicação é necessário ter git e docker instalado [Docker](https://docs.docker.com/engine/install/) e Docker Compose abra  o terminal navegue para diretório cd cashWay e rode o comando abaixo:
 
 ```
 docker-compose -f docker-compose.gerencial.yaml -f docker-compose.banking.yaml up --build
