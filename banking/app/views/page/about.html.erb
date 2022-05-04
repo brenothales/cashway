@@ -4,7 +4,10 @@
        <h1 class="display-4"><%= current_user.name.titleize %></h1>
         <p class="lead"><%= current_user.message %></p>
         <hr class="my-4">
-        <p><strong>Conta: </strong><%= current_user.account %></p>
+        <p><strong>Conta: </strong><%= current_user.account %>
+        <br/>
+        <strong>E-mail: </strong><%= current_user.email %>
+        </p>
         <a class="btn btn-dark btn-lg" href="#" role="button">Gerar outro número</a>
     </div>
     <div class="col">
