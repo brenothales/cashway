@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :account, :message, :name, presence: true
-  validates :account, uniqueness: true
+  validates :account, uniqueness: true, length: {minimum: 5, maximum: 8}, allow_blank: false
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
   def email_required?
