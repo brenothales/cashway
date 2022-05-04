@@ -6,7 +6,8 @@
 
 # Ignore bundler config.
 /.bundle
-../public/assets/**/*
+gerencial/public/assets/**/*
+banking/public/assets/**/*
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -16,4 +17,3 @@
 # Ignore Byebug command history file.
 .byebug_history
 .DS_Store
-

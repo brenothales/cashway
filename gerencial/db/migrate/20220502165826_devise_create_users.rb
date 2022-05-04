@@ -7,7 +7,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :email,              null: false
       t.string :encrypted_password, null: false
       t.string :name,               null: false
-      t.integer :account,           null: false
+      t.bigint :account,           null: false, limit: 8
+      #Ex:- :limit => 40
 
       ## Recoverable
       t.string   :reset_password_token
