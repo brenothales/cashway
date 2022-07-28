@@ -23,7 +23,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: build
+        command: docker-compose -f docker-compose.gerencial.yaml -f docker-compose.banking.yaml up --build
         dockerfile: '$(Build.SourcesDirectory)/banking/Dockerfile'
         tags: |
           $(tag)
